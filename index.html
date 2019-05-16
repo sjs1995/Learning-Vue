@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"> 
+        <title>Title</title>
+        <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div v-if="count > 0">
+                count:{{count}}
+            </div>
+            <div v-else-if="count < 0 && count > -5">
+                {{count}}
+            </div>
+            <div v-else>
+                counts:{{count}}
+            </div>
+            <div v-show="count == -1">
+                show:{{count}}
+            </div>
+            {{msg}}
+            <div v-for="item in list">
+                <div v-show="item.age>29" v-bind:style="styleMsg" :class="['active','add',{'another':item.age<30}]">
+                    {{item.name}}
+                </div>
+            </div>
+        </div>
+        <script>
+            let vue = new Vue({
+                el:'#app',
+                data:{
+                    msg:'hello world',
+                    styleMsg: {
+                        color: 'red',
+                        textShadow:'0 0 5px green'
+                    },
+                    count:0,
+                    list:[{
+                        name:'li',
+                        age:29
+                    },{
+                        name:'zhang',
+                        age:30
+                    }]
+                }
+            })
+        </script>
+    </body>
+</html>
